@@ -51,10 +51,15 @@ def airConditioning_world():
               print("Calentando Habitacion "+ str(i))
               estado_global['Habitacion '+str(i+1)] = '0' 
               costo += 1
-              
-     # Terminando
-    print("Estado Global")
-    print(estado_global)
+
+      # Finalizando Acondicionamiento
+    print("Estado actual de las habitaciones: "+"\n Frio = 0 / Caliente = 1")
+    
+    #Bucle for para mostrar las habitaciones y el estado en que se encuentran
+    for key, value in estado_global.items():
+        print(str(key)+" en estado "+str(value))
+        
+    #Muestra el costo final como medida de desempeño
     print("Medida de desempeño: " + str(costo))
 
 airConditioning_world()
