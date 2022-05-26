@@ -24,40 +24,40 @@ def airConditioning_world():
     #Bucle FOR que recorre la lista de las habitaciones de los estados originales
     # y se compara con los estados actualizados 
     print("*****ACONDICIONANDO HABITACIONES*****")
-    for i in range(0,len(lista_habitaciones_estados_originales)):
+    for indice in range(0,len(lista_habitaciones_estados_originales)):
         
         #si la habitacion se encuentra en estado 0(caliente) entonces
-        if lista_habitaciones_estados_originales[i] == '0':
+        if lista_habitaciones_estados_originales[indice] == '0':
             # Habitacion esta Caliente     
-          print("Habitacion "+ str(i)+" caliente")
+          print("Habitacion "+ str(indice)+" caliente")
           
           # si la habitacion se encuentra ya en estado caliente, entonces no suma costo
-          if lista_habitaciones_estados_actalizar[i] == '0':
-              print("Habitacion "+ str(i)+" ya esta calida")
+          if lista_habitaciones_estados_actalizar[indice] == '0':
+              print("Habitacion "+ str(indice)+" ya esta calida")
           #si se encuentra en estado frio, entonces realiza la accion y suma 1 costo    
           else:
-              print("Enfriando Habitacion "+ str(i))
-              estado_global['Habitacion '+str(i+1)] = '1' 
+              print("Enfriando Habitacion "+ str(indice))
+              estado_global['Habitacion '+str(indice+1)] = '1' 
               costo += 1
         #si la habitacion se encuentra en estado 1(fria) entonces
         else: 
           #Habitacion esta fria
-          print("Habitacion "+ str(i)+" fria")  
+          print("Habitacion "+ str(indice)+" fria")  
           #si se requiere que la habitacion quede fria entonces no suma costo
-          if lista_habitaciones_estados_actalizar[i] == '1':  
-              print("Habitacion "+ str(i)+" ya esta fria")
+          if lista_habitaciones_estados_actalizar[indice] == '1':  
+              print("Habitacion "+ str(indice)+" ya esta fria")
           #si la habitacion esta caliente, entonces realiza la accion y suma 1 costo    
           else:
-              print("Calentando Habitacion "+ str(i))
-              estado_global['Habitacion '+str(i+1)] = '0' 
+              print("Calentando Habitacion "+ str(indice))
+              estado_global['Habitacion '+str(indice+1)] = '0' 
               costo += 1
 
       # Finalizando Acondicionamiento
     print("Estado actual de las habitaciones: "+"\n Frio = 0 / Caliente = 1")
     
     #Bucle for para mostrar las habitaciones y el estado en que se encuentran
-    for key, value in estado_global.items():
-        print(str(key)+" en estado "+str(value))
+    for llave, valor in estado_global.items():
+        print(str(llave)+" en estado "+str(valor))
         
     #Muestra el costo final como medida de desempeño
     print("Medida de desempeño: " + str(costo))
